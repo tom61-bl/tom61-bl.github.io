@@ -28,7 +28,6 @@
   const signalMeters = $("signal-meters");
   const npText = $("np-text");
   const bootOverlay = $("boot-overlay");
-  const bootBtn = $("boot-btn");
   const powerSwitch = $("power-switch");
   const vuBars = $("vu-bars");
   const cassetteReels = document.querySelectorAll(".cassette-reel");
@@ -239,8 +238,7 @@
 
   // ===== 开机 =====
   async function boot() {
-    bootBtn.disabled = true;
-    bootBtn.textContent = "启动中…";
+    if (state.powered) return;
 
     await AudioSystem.resume();
     await AudioSystem.init();
@@ -256,14 +254,12 @@
     setIndicator(parseFloat(first.freq));
     lockStation(first);
     AudioSystem.playFirst(0);
-
-    bootBtn.disabled = false;
-    bootBtn.textContent = "▶ 启动电台";
   }
 
   // ===== 事件 =====
   function bindEvents() {
-    bootBtn.addEventListener("click", boot);
+    // 点击遮罩任意位置（电台）启动
+    bootOverlay.addEventListener("click", boot);
 
     freqScale.addEventListener("mousedown", onDragStart);
     document.addEventListener("mousemove", onDragMove);

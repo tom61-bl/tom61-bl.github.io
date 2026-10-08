@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>涓汉璇存槑涔?路 NEON FM</title>
-  <meta name="description" content="璋冮鍒伴湏铏癸紝鎺ユ敹鏉ヨ嚜浜斾釜棰戦亾鐨勪俊鍙枫€?>
+  <title>个人说明书 · NEON FM</title>
+  <meta name="description" content="调频到霓虹，接收来自五个频道的信号。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Orbitron:wght@400;700;900&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
 
-  <!-- Synthwave 鑳屾櫙灞?-->
+  <!-- Synthwave 背景层 -->
   <div class="bg-layer" id="bg-layer">
     <div class="bg-gradient"></div>
     <div class="bg-sun-wrap">
       <div class="bg-sun"></div>
-      <!-- 椋為笩鍓奖锛堝ぇ楣?澶ч泚锛?-->
+      <!-- 飞鸟剪影（大鹏/大雁） -->
       <svg class="bg-birds" id="bg-birds" viewBox="0 0 320 320" fill="none">
         <path class="bird bird-1" d="M60 90 Q68 82 76 90 Q84 82 92 90" stroke="#0d0221" stroke-width="2.5" fill="none" stroke-linecap="round"/>
         <path class="bird bird-2" d="M180 60 Q188 52 196 60 Q204 52 212 60" stroke="#0d0221" stroke-width="2.5" fill="none" stroke-linecap="round"/>
@@ -25,45 +25,36 @@
         <path class="bird bird-4" d="M120 50 Q126 44 132 50 Q138 44 144 50" stroke="#0d0221" stroke-width="2" fill="none" stroke-linecap="round"/>
       </svg>
     </div>
-    <!-- 澶哥埗閫愭棩鍓奖锛氱珛浜庡湴骞崇嚎涓婄殑浜?-->
-    <svg class="bg-figure" id="bg-figure" viewBox="0 0 100 100" fill="#0d0221">
-      <g class="figure-group">
-        <circle cx="50" cy="18" r="7"/>
-        <path d="M50 26 Q44 38 42 55 L40 78 L45 78 L47 58 L50 58 L53 58 L55 78 L60 78 L58 55 Q56 38 50 26 Z"/>
-        <path class="figure-arm" d="M44 40 Q34 48 30 58"/>
-        <path class="figure-arm-r" d="M56 40 Q66 48 70 58"/>
-      </g>
-    </svg>
     <div class="bg-grid"></div>
     <div class="bg-stars"></div>
   </div>
 
-  <!-- CRT 鎵弿绾?-->
+  <!-- CRT 扫描线 -->
   <div class="crt-overlay"></div>
 
-  <!-- 涓诲唴瀹瑰尯 -->
+  <!-- 主内容区 -->
   <main class="content-area">
     <div class="content-screen">
       <div class="screen-header">
         <div class="screen-label">
           <span class="label-dot"></span>
-          <span class="label-text">NEON FM 路 BROADCAST</span>
+          <span class="label-text">NEON FM · BROADCAST</span>
         </div>
         <div class="screen-freq">
           <span id="screen-freq">88.1</span><span class="freq-unit">MHz</span>
         </div>
       </div>
       <div class="screen-body" id="screen-body">
-        <!-- 鍐呭鐢?JS 娓叉煋 -->
+        <!-- 内容由 JS 渲染 -->
       </div>
     </div>
   </main>
 
-  <!-- 鐢靛彴鎺у埗鍙?-->
+  <!-- 电台控制台 -->
   <footer class="radio-console">
     <div class="console-inner">
 
-      <!-- 宸︿晶锛氱甯?VU 琛?-->
+      <!-- 左侧：磁带 VU 表 -->
       <div class="vu-panel">
         <div class="vu-title">VU METER</div>
         <div class="vu-bars" id="vu-bars">
@@ -80,7 +71,7 @@
         </div>
       </div>
 
-      <!-- 涓棿锛氶鐜囧埢搴?+ 璋冮 -->
+      <!-- 中间：频率刻度 + 调频 -->
       <div class="tuner-panel">
         <div class="freq-scale" id="freq-scale">
           <div class="freq-ticks" id="freq-ticks"></div>
@@ -92,23 +83,23 @@
         </div>
 
         <div class="tuner-controls">
-          <button class="neon-btn" id="btn-prev">鈼€ PREV</button>
+          <button class="neon-btn" id="btn-prev">◀ PREV</button>
           <div class="power-switch" id="power-switch">
             <div class="power-track">
               <div class="power-knob"></div>
             </div>
             <span class="power-label">POWER</span>
           </div>
-          <button class="neon-btn" id="btn-next">NEXT 鈻?/button>
+          <button class="neon-btn" id="btn-next">NEXT ▶</button>
         </div>
 
         <div class="now-playing" id="now-playing">
           <span class="np-label">NOW TUNING:</span>
-          <span class="np-text" id="np-text">绛夊緟淇″彿鎺ュ叆鈥?/span>
+          <span class="np-text" id="np-text">等待信号接入…</span>
         </div>
       </div>
 
-      <!-- 鍙充晶锛氭暟瀛楁樉绀?+ 淇″彿 -->
+      <!-- 右侧：数字显示 + 信号 -->
       <div class="digital-panel">
         <div class="digital-display">
           <div class="digital-freq" id="digital-freq">--.-</div>
@@ -119,27 +110,34 @@
           <span class="sig-bar"></span><span class="sig-bar"></span>
         </div>
         <div class="station-call" id="station-call">SIGNAL: OFF</div>
-        <div class="station-name" id="station-name">鈥斺€?/div>
+        <div class="station-name" id="station-name">——</div>
       </div>
 
     </div>
   </footer>
 
-  <!-- 寮€鏈洪伄缃?-->
+  <!-- 开机遮罩：全黑，一台电台，点击启动 -->
   <div class="boot-overlay" id="boot-overlay">
-    <div class="boot-box">
-      <div class="boot-title">NEON FM</div>
-      <div class="boot-sub">涓汉璇存槑涔?路 澶嶅彜鏈潵鐢靛彴</div>
-      <div class="boot-hint">璋冮鍒伴湏铏?路 鎺ユ敹浜斾釜棰戦亾鐨勪俊鍙?/div>
-      <button class="boot-btn" id="boot-btn">
-        <span class="boot-btn-text">鈻?鍚姩鐢靛彴</span>
-      </button>
-      <div class="boot-foot">寤鸿鎴翠笂鑰虫満 路 浜斾釜棰戦亾锛屼簲涓垜</div>
+    <div class="boot-radio" id="boot-radio">
+      <svg class="boot-radio-icon" viewBox="0 0 120 80" fill="none">
+        <rect x="8" y="18" width="104" height="54" stroke="#00f0ff" stroke-width="2"/>
+        <rect x="16" y="26" width="40" height="20" stroke="#ff2d95" stroke-width="1.5"/>
+        <line x1="20" y1="32" x2="50" y2="32" stroke="#ff2d95" stroke-width="1"/>
+        <line x1="20" y1="37" x2="45" y2="37" stroke="#ff2d95" stroke-width="1"/>
+        <circle cx="82" cy="36" r="10" stroke="#00f0ff" stroke-width="1.5"/>
+        <circle cx="82" cy="36" r="2" fill="#00f0ff"/>
+        <line x1="82" y1="36" x2="82" y2="29" stroke="#00f0ff" stroke-width="1.5"/>
+        <circle cx="100" cy="36" r="4" stroke="#ff2d95" stroke-width="1.5"/>
+        <rect x="16" y="52" width="88" height="12" stroke="#b026ff" stroke-width="1"/>
+        <line x1="22" y1="58" x2="98" y2="58" stroke="#b026ff" stroke-width="1" stroke-dasharray="3 2"/>
+      </svg>
+      <div class="boot-radio-label">点击电台启动</div>
+      <div class="boot-radio-hint">NEON FM</div>
     </div>
   </div>
 
-  <script src="js/data.js?v=2"></script>
-  <script src="js/audio.js?v=2"></script>
-  <script src="js/radio.js?v=2"></script>
+  <script src="js/data.js?v=3"></script>
+  <script src="js/audio.js?v=3"></script>
+  <script src="js/radio.js?v=3"></script>
 </body>
 </html>

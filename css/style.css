@@ -113,23 +113,46 @@ html, body {
   50% { transform: translateX(12px); opacity: 1; }
 }
 
-/* 夸父逐日剪影 */
-.bg-figure {
-  position: absolute;
-  bottom: 21%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70px;
-  height: 70px;
-  z-index: 2;
-  transition: transform 0.8s ease;
+/* ===== 开机遮罩：全黑，电台 ===== */
+.boot-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
-.figure-arm, .figure-arm-r {
-  stroke: #0d0221;
-  stroke-width: 3;
-  fill: none;
-  stroke-linecap: round;
-  transition: all 0.8s ease;
+.boot-overlay.hidden { display: none; }
+
+.boot-radio {
+  text-align: center;
+  animation: bootPulse 2s ease-in-out infinite;
+}
+@keyframes bootPulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+.boot-radio-icon {
+  width: 180px;
+  height: 120px;
+  filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.5));
+}
+.boot-radio-label {
+  font-family: 'Orbitron', 'ZCOOL KuaiLe', sans-serif;
+  font-size: 16px;
+  color: var(--neon-cyan);
+  letter-spacing: 2px;
+  margin-top: 14px;
+  text-shadow: 0 0 10px var(--neon-cyan);
+}
+.boot-radio-hint {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  color: var(--neon-pink);
+  letter-spacing: 4px;
+  margin-top: 8px;
 }
 
 /* ===== 频道主题（场景随频率变化） ===== */
@@ -139,7 +162,6 @@ html, body {
 .bg-layer[data-channel="0"] .bg-sun {
   background: linear-gradient(180deg, #ffe600, #ffb347 30%, #ff6b35 55%, #ff2d95 80%, #b026ff);
 }
-.bg-layer[data-channel="0"] .bg-figure { transform: translateX(-50%) scale(1); }
 .bg-layer[data-channel="0"] .bird { animation-duration: 8s; }
 
 /* Ch2 Now: 更活跃，色调偏冷 */
@@ -149,7 +171,6 @@ html, body {
 .bg-layer[data-channel="1"] .bg-sun {
   background: linear-gradient(180deg, #ff6b35, #ff2d95 40%, #b026ff 70%, #5b0ea8);
 }
-.bg-layer[data-channel="1"] .bg-figure { transform: translateX(-50%) scale(0.95); }
 .bg-layer[data-channel="1"] .bird { animation-duration: 5s; }
 .bg-layer[data-channel="1"] .bg-grid { animation-duration: 1.2s; }
 
@@ -159,12 +180,6 @@ html, body {
 }
 .bg-layer[data-channel="2"] .bg-sun {
   background: linear-gradient(180deg, #00f0ff, #b026ff 40%, #ff2d95 70%, #5b0ea8);
-}
-.bg-layer[data-channel="2"] .bg-figure {
-  transform: translateX(-50%) scale(1.05) translateY(-4px);
-}
-.bg-layer[data-channel="2"] .figure-arm-r {
-  d: path("M56 40 Q68 30 78 18");
 }
 .bg-layer[data-channel="2"] .bird { animation-duration: 6s; }
 .bg-layer[data-channel="2"] .bird-2 { transform: translateY(-10px); }
@@ -176,10 +191,6 @@ html, body {
 .bg-layer[data-channel="3"] .bg-sun {
   background: linear-gradient(180deg, #ffe600, #ffb347 35%, #ff6b35 60%, #ff2d95);
 }
-.bg-layer[data-channel="3"] .bg-figure { transform: translateX(-50%) scale(1.02); }
-.bg-layer[data-channel="3"] .figure-arm {
-  d: path("M44 40 Q32 38 24 42");
-}
 .bg-layer[data-channel="3"] .bird { animation-duration: 7s; }
 .bg-layer[data-channel="3"] .bird-1,
 .bg-layer[data-channel="3"] .bird-3 { animation-delay: 0s; }
@@ -190,13 +201,6 @@ html, body {
 }
 .bg-layer[data-channel="4"] .bg-sun {
   background: linear-gradient(180deg, #ff2d95, #b026ff 35%, #5b0ea8 65%, #1a0533);
-}
-.bg-layer[data-channel="4"] .bg-figure {
-  transform: translateX(-50%) scale(1.08) translateY(-2px);
-}
-.bg-layer[data-channel="4"] .figure-arm,
-.bg-layer[data-channel="4"] .figure-arm-r {
-  d: path("M44 40 Q36 50 34 60");
 }
 .bg-layer[data-channel="4"] .bird { animation-duration: 4.5s; }
 .bg-layer[data-channel="4"] .bg-grid { animation-duration: 1s; }
@@ -752,67 +756,6 @@ html, body {
   justify-content: center;
 }
 .boot-overlay.hidden { display: none; }
-
-.boot-box { text-align: center; padding: 40px; }
-
-.boot-title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 64px;
-  font-weight: 900;
-  color: var(--neon-pink);
-  text-shadow:
-    0 0 20px var(--neon-pink),
-    0 0 40px var(--neon-pink),
-    0 0 80px var(--neon-purple);
-  letter-spacing: 8px;
-  margin-bottom: 12px;
-  animation: titleGlow 2s ease-in-out infinite;
-}
-@keyframes titleGlow {
-  0%, 100% { text-shadow: 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink), 0 0 80px var(--neon-purple); }
-  50% { text-shadow: 0 0 30px var(--neon-pink), 0 0 60px var(--neon-pink), 0 0 100px var(--neon-purple); }
-}
-
-.boot-sub {
-  font-family: 'Orbitron', 'ZCOOL KuaiLe', sans-serif;
-  font-size: 18px;
-  color: var(--neon-cyan);
-  letter-spacing: 3px;
-  margin-bottom: 8px;
-}
-.boot-hint {
-  font-size: 17px;
-  color: var(--text-dim);
-  margin-bottom: 36px;
-}
-
-.boot-btn {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 18px;
-  padding: 16px 44px;
-  background: transparent;
-  border: 2px solid var(--neon-cyan);
-  color: var(--neon-cyan);
-  cursor: pointer;
-  letter-spacing: 2px;
-  box-shadow:
-    0 0 15px rgba(0, 240, 255, 0.4),
-    inset 0 0 15px rgba(0, 240, 255, 0.1);
-  transition: all 0.2s;
-}
-.boot-btn:hover {
-  background: rgba(0, 240, 255, 0.15);
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
-  color: var(--neon-pink);
-  border-color: var(--neon-pink);
-}
-.boot-btn:active { transform: scale(0.97); }
-
-.boot-foot {
-  margin-top: 28px;
-  font-size: 16px;
-  color: var(--text-dim);
-}
 
 /* ===== 响应式 ===== */
 @media (max-width: 700px) {
