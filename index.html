@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人说明书 · NEON FM</title>
+  <meta name="description" content="调频到霓虹，接收来自五个频道的信号。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Orbitron:wght@400;700;900&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+
+  <!-- Synthwave 背景层 -->
+  <div class="bg-layer">
+    <div class="bg-gradient"></div>
+    <div class="bg-sun"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-stars"></div>
+  </div>
+
+  <!-- CRT 扫描线 -->
+  <div class="crt-overlay"></div>
+
+  <!-- 主内容区 -->
+  <main class="content-area">
+    <div class="content-screen">
+      <div class="screen-header">
+        <div class="screen-label">
+          <span class="label-dot"></span>
+          <span class="label-text">NEON FM · BROADCAST</span>
+        </div>
+        <div class="screen-freq">
+          <span id="screen-freq">88.1</span><span class="freq-unit">MHz</span>
+        </div>
+      </div>
+      <div class="screen-body" id="screen-body">
+        <!-- 内容由 JS 渲染 -->
+      </div>
+    </div>
+  </main>
+
+  <!-- 电台控制台 -->
+  <footer class="radio-console">
+    <div class="console-inner">
+
+      <!-- 左侧：磁带 VU 表 -->
+      <div class="vu-panel">
+        <div class="vu-title">VU METER</div>
+        <div class="vu-bars" id="vu-bars">
+          <div class="vu-bar"></div><div class="vu-bar"></div><div class="vu-bar"></div>
+          <div class="vu-bar"></div><div class="vu-bar"></div><div class="vu-bar"></div>
+          <div class="vu-bar"></div><div class="vu-bar"></div><div class="vu-bar"></div>
+          <div class="vu-bar"></div><div class="vu-bar"></div><div class="vu-bar"></div>
+        </div>
+        <div class="vu-deck">
+          <div class="cassette">
+            <div class="cassette-reel left"></div>
+            <div class="cassette-reel right"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 中间：频率刻度 + 调频 -->
+      <div class="tuner-panel">
+        <div class="freq-scale" id="freq-scale">
+          <div class="freq-ticks" id="freq-ticks"></div>
+          <div class="freq-stations" id="freq-stations"></div>
+          <div class="freq-indicator" id="freq-indicator">
+            <div class="indicator-line"></div>
+            <div class="indicator-handle"></div>
+          </div>
+        </div>
+
+        <div class="tuner-controls">
+          <button class="neon-btn" id="btn-prev">◀ PREV</button>
+          <div class="power-switch" id="power-switch">
+            <div class="power-track">
+              <div class="power-knob"></div>
+            </div>
+            <span class="power-label">POWER</span>
+          </div>
+          <button class="neon-btn" id="btn-next">NEXT ▶</button>
+        </div>
+
+        <div class="now-playing" id="now-playing">
+          <span class="np-label">NOW TUNING:</span>
+          <span class="np-text" id="np-text">等待信号接入…</span>
+        </div>
+      </div>
+
+      <!-- 右侧：数字显示 + 信号 -->
+      <div class="digital-panel">
+        <div class="digital-display">
+          <div class="digital-freq" id="digital-freq">--.-</div>
+          <div class="digital-unit">MHz</div>
+        </div>
+        <div class="signal-meters" id="signal-meters">
+          <span class="sig-bar"></span><span class="sig-bar"></span><span class="sig-bar"></span>
+          <span class="sig-bar"></span><span class="sig-bar"></span>
+        </div>
+        <div class="station-call" id="station-call">SIGNAL: OFF</div>
+        <div class="station-name" id="station-name">——</div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- 开机遮罩 -->
+  <div class="boot-overlay" id="boot-overlay">
+    <div class="boot-box">
+      <div class="boot-title">NEON FM</div>
+      <div class="boot-sub">个人说明书 · 复古未来电台</div>
+      <div class="boot-hint">调频到霓虹 · 接收五个频道的信号</div>
+      <button class="boot-btn" id="boot-btn">
+        <span class="boot-btn-text">▶ 启动电台</span>
+      </button>
+      <div class="boot-foot">建议戴上耳机 · 五个频道，五个我</div>
+    </div>
+  </div>
+
+  <script src="js/data.js?v=1"></script>
+  <script src="js/audio.js?v=1"></script>
+  <script src="js/radio.js?v=1"></script>
+</body>
+</html>
