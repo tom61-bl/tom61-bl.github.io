@@ -59,13 +59,18 @@ html, body {
 }
 
 /* 落日 */
-.bg-sun {
+.bg-sun-wrap {
   position: absolute;
   bottom: 22%;
   left: 50%;
   transform: translateX(-50%);
   width: 320px;
   height: 320px;
+  transition: transform 0.8s ease, filter 0.8s ease;
+}
+.bg-sun {
+  width: 100%;
+  height: 100%;
   border-radius: 50% !important;
   background: linear-gradient(180deg,
     #ffe600 0%,
@@ -77,7 +82,6 @@ html, body {
   box-shadow:
     0 0 60px rgba(255, 107, 53, 0.6),
     0 0 120px rgba(255, 45, 149, 0.4);
-  /* 太阳横条纹 */
   -webkit-mask: repeating-linear-gradient(180deg,
     #000 0px, #000 14px,
     transparent 14px, transparent 18px
@@ -86,7 +90,116 @@ html, body {
     #000 0px, #000 14px,
     transparent 14px, transparent 18px
   );
+  transition: background 0.8s ease;
 }
+
+/* 飞鸟剪影 */
+.bg-birds {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.bird {
+  transition: stroke 0.8s ease;
+  animation: birdFly 8s ease-in-out infinite;
+}
+.bird-1 { animation-delay: 0s; }
+.bird-2 { animation-delay: 1.5s; }
+.bird-3 { animation-delay: 3s; }
+.bird-4 { animation-delay: 2s; }
+@keyframes birdFly {
+  0%, 100% { transform: translateX(0); opacity: 0.9; }
+  50% { transform: translateX(12px); opacity: 1; }
+}
+
+/* 夸父逐日剪影 */
+.bg-figure {
+  position: absolute;
+  bottom: 21%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 70px;
+  z-index: 2;
+  transition: transform 0.8s ease;
+}
+.figure-arm, .figure-arm-r {
+  stroke: #0d0221;
+  stroke-width: 3;
+  fill: none;
+  stroke-linecap: round;
+  transition: all 0.8s ease;
+}
+
+/* ===== 频道主题（场景随频率变化） ===== */
+.bg-layer[data-channel="0"] .bg-sun-wrap {
+  transform: translateX(-50%) scale(1);
+}
+.bg-layer[data-channel="0"] .bg-sun {
+  background: linear-gradient(180deg, #ffe600, #ffb347 30%, #ff6b35 55%, #ff2d95 80%, #b026ff);
+}
+.bg-layer[data-channel="0"] .bg-figure { transform: translateX(-50%) scale(1); }
+.bg-layer[data-channel="0"] .bird { animation-duration: 8s; }
+
+/* Ch2 Now: 更活跃，色调偏冷 */
+.bg-layer[data-channel="1"] .bg-sun-wrap {
+  transform: translateX(-50%) scale(0.92) translateY(8px);
+}
+.bg-layer[data-channel="1"] .bg-sun {
+  background: linear-gradient(180deg, #ff6b35, #ff2d95 40%, #b026ff 70%, #5b0ea8);
+}
+.bg-layer[data-channel="1"] .bg-figure { transform: translateX(-50%) scale(0.95); }
+.bg-layer[data-channel="1"] .bird { animation-duration: 5s; }
+.bg-layer[data-channel="1"] .bg-grid { animation-duration: 1.2s; }
+
+/* Ch3 Future: 大鹏高飞，色调偏紫青 */
+.bg-layer[data-channel="2"] .bg-sun-wrap {
+  transform: translateX(-50%) scale(1.08) translateY(-12px);
+}
+.bg-layer[data-channel="2"] .bg-sun {
+  background: linear-gradient(180deg, #00f0ff, #b026ff 40%, #ff2d95 70%, #5b0ea8);
+}
+.bg-layer[data-channel="2"] .bg-figure {
+  transform: translateX(-50%) scale(1.05) translateY(-4px);
+}
+.bg-layer[data-channel="2"] .figure-arm-r {
+  d: path("M56 40 Q68 30 78 18");
+}
+.bg-layer[data-channel="2"] .bird { animation-duration: 6s; }
+.bg-layer[data-channel="2"] .bird-2 { transform: translateY(-10px); }
+
+/* Ch4 Contact: 温暖，双鸟同行 */
+.bg-layer[data-channel="3"] .bg-sun-wrap {
+  transform: translateX(-50%) scale(1.02);
+}
+.bg-layer[data-channel="3"] .bg-sun {
+  background: linear-gradient(180deg, #ffe600, #ffb347 35%, #ff6b35 60%, #ff2d95);
+}
+.bg-layer[data-channel="3"] .bg-figure { transform: translateX(-50%) scale(1.02); }
+.bg-layer[data-channel="3"] .figure-arm {
+  d: path("M44 40 Q32 38 24 42");
+}
+.bg-layer[data-channel="3"] .bird { animation-duration: 7s; }
+.bg-layer[data-channel="3"] .bird-1,
+.bg-layer[data-channel="3"] .bird-3 { animation-delay: 0s; }
+
+/* Ch5 Works: 暗色自信，群鸟成阵 */
+.bg-layer[data-channel="4"] .bg-sun-wrap {
+  transform: translateX(-50%) scale(0.95) translateY(4px);
+}
+.bg-layer[data-channel="4"] .bg-sun {
+  background: linear-gradient(180deg, #ff2d95, #b026ff 35%, #5b0ea8 65%, #1a0533);
+}
+.bg-layer[data-channel="4"] .bg-figure {
+  transform: translateX(-50%) scale(1.08) translateY(-2px);
+}
+.bg-layer[data-channel="4"] .figure-arm,
+.bg-layer[data-channel="4"] .figure-arm-r {
+  d: path("M44 40 Q36 50 34 60");
+}
+.bg-layer[data-channel="4"] .bird { animation-duration: 4.5s; }
+.bg-layer[data-channel="4"] .bg-grid { animation-duration: 1s; }
 
 /* 地平线网格 */
 .bg-grid {

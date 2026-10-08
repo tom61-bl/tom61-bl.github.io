@@ -107,6 +107,9 @@
     if (state.currentStation === station.id) return;
     state.currentStation = station.id;
 
+    // 场景随频道切换
+    document.getElementById("bg-layer").setAttribute("data-channel", station.id);
+
     document.querySelectorAll(".station-star").forEach((s) => {
       s.classList.toggle("locked", parseInt(s.dataset.id) === station.id);
     });

@@ -1,28 +1,25 @@
-# NEON FM · 个人说明书
+﻿# NEON FM 路 涓汉璇存槑涔?
+澶嶅彜鏈潵鐢靛彴椋庢牸鐨勪釜浜虹綉绔欍€傝皟棰戝埌闇撹櫣锛屾帴鏀朵簲涓閬撶殑淇″彿銆?
+## 浜斾釜棰戦亾
 
-复古未来电台风格的个人网站。调频到霓虹，接收五个频道的信号。
-
-## 五个频道
-
-| 频率 | 频道 | 内容 |
+| 棰戠巼 | 棰戦亾 | 鍐呭 |
 |------|------|------|
-| 88.1 | 身份信号 | 我是谁 |
-| 92.5 | 进行时信号 | 我在做什么 |
-| 96.8 | 未来信号 | 我想做什么 |
-| 101.3 | 联络信号 | 怎么样和我链接 |
-| 105.7 | 成果信号 | 我的成果 |
+| 88.1 | 韬唤淇″彿 | 鎴戞槸璋?|
+| 92.5 | 杩涜鏃朵俊鍙?| 鎴戝湪鍋氫粈涔?|
+| 96.8 | 鏈潵淇″彿 | 鎴戞兂鍋氫粈涔?|
+| 101.3 | 鑱旂粶淇″彿 | 鎬庝箞鏍峰拰鎴戦摼鎺?|
+| 105.7 | 鎴愭灉淇″彿 | 鎴戠殑鎴愭灉 |
 
-## 技术栈
+## 鎶€鏈爤
 
-- 纯 HTML / CSS / JavaScript
-- 原生 Web Audio（无框架）
-- Synthwave 视觉：霓虹渐变、地平线网格、落日、CRT、VHS 故障转场
+- 绾?HTML / CSS / JavaScript
+- 鍘熺敓 Web Audio锛堟棤妗嗘灦锛?- Synthwave 瑙嗚锛氶湏铏规笎鍙樸€佸湴骞崇嚎缃戞牸銆佽惤鏃ャ€丆RT銆乂HS 鏁呴殰杞満
 
-## 音乐署名
+## 闊充箰缃插悕
 
-- 全部音乐来自 Kevin MacLeod (incompetech.com)，CC BY 4.0
-- Ch1: Nowhere Land
-- Ch2: Bit Shift
-- Ch3: Move Forward
-- Ch4: EDM Detection Mode
-- Ch5: Exhilarate
+- 鍏ㄩ儴闊充箰鏉ヨ嚜 Kevin MacLeod (incompetech.com)锛孋C BY 4.0
+- Ch1: Light Rain (chillwave)
+- Ch2: Night Roads (synthwave)
+- Ch3: Through The Waves (dreamy)
+- Ch4: Back Home (warm)
+- Ch5: Dusk Horizon (dark synth)
