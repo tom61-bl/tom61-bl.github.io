@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>个人说明书 · NEON FM</title>
-  <meta name="description" content="调频到霓虹，接收来自五个频道的信号。">
+  <title>个人说明书</title>
+  <meta name="description" content="个人说明书">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Orbitron:wght@400;700;900&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Orbitron:wght@400;700;900&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
 
@@ -17,8 +17,7 @@
     <div class="bg-gradient"></div>
     <div class="bg-sun-wrap">
       <div class="bg-sun"></div>
-      <!-- 飞鸟剪影（大鹏/大雁） -->
-      <svg class="bg-birds" id="bg-birds" viewBox="0 0 320 320" fill="none">
+      <svg class="bg-birds" viewBox="0 0 320 320" fill="none">
         <path class="bird bird-1" d="M60 90 Q68 82 76 90 Q84 82 92 90" stroke="#0d0221" stroke-width="2.5" fill="none" stroke-linecap="round"/>
         <path class="bird bird-2" d="M180 60 Q188 52 196 60 Q204 52 212 60" stroke="#0d0221" stroke-width="2.5" fill="none" stroke-linecap="round"/>
         <path class="bird bird-3" d="M230 110 Q236 104 242 110 Q248 104 254 110" stroke="#0d0221" stroke-width="2" fill="none" stroke-linecap="round"/>
@@ -32,112 +31,147 @@
   <!-- CRT 扫描线 -->
   <div class="crt-overlay"></div>
 
-  <!-- 主内容区 -->
-  <main class="content-area">
-    <div class="content-screen">
-      <div class="screen-header">
-        <div class="screen-label">
-          <span class="label-dot"></span>
-          <span class="label-text">NEON FM · BROADCAST</span>
-        </div>
-        <div class="screen-freq">
-          <span id="screen-freq">88.1</span><span class="freq-unit">MHz</span>
-        </div>
+  <!-- 主内容 -->
+  <main class="page-content">
+
+    <header class="page-header">
+      <h1 class="page-title">个人说明书</h1>
+      <p class="page-sub">调频到霓虹 · 接收五个频道的信号</p>
+    </header>
+
+    <section class="content-card" id="sec-identity">
+      <h2>▶ 身份信号 · 我是谁</h2>
+      <h3>一句话定位</h3>
+      <p class="highlight">【护理学生 × 创作者商务 × 内容创作者，在杭州独居的 21 岁男生】</p>
+      <h3>基本信息</h3>
+      <ul>
+        <li>姓名/昵称：【待填】</li>
+        <li>年龄：21 岁</li>
+        <li>坐标：杭州</li>
+        <li>身份：护理学生 / GoSail Lab Partnerships Manager / 内容创作者</li>
+        <li>MBTI：【待填】</li>
+        <li>星座：【待填】</li>
+      </ul>
+      <h3>性格标签</h3>
+      <p>
+        <span class="tag">#编码极简主义者</span>
+        <span class="tag">#一人食探索家</span>
+        <span class="tag">#ICU 轮转生</span>
+        <span class="tag">#待填标签</span>
+      </p>
+      <h3>我是谁</h3>
+      <p>【这里是一段自我介绍，2-4 句。真诚地介绍自己，后续替换。】</p>
+    </section>
+
+    <section class="content-card" id="sec-now">
+      <h2>▶ 进行时信号 · 我在做什么</h2>
+      <h3>当前运行的进程</h3>
+      <div class="card">
+        <div class="card-title">▶ 进程 1：护理学习</div>
+        <p>【当前阶段：已完成 ICU 轮转，下一科室/学习重点待填】</p>
       </div>
-      <div class="screen-body" id="screen-body">
-        <!-- 内容由 JS 渲染 -->
+      <div class="card">
+        <div class="card-title">▶ 进程 2：GoSail Lab</div>
+        <p>【职位：Partnerships Manager】</p>
+        <p>【近期 campaign、合作创作者数量、数据亮点待填】</p>
       </div>
-    </div>
+      <div class="card">
+        <div class="card-title">▶ 进程 3：内容创作</div>
+        <p>【最近在写什么、平台、创作主题待填】</p>
+      </div>
+      <h3>我擅长的事</h3>
+      <ul>
+        <li>【写作和表达——文案、内容初稿】</li>
+        <li>【KOL 建联和商务谈判】</li>
+        <li>【临床操作和护理观察】</li>
+      </ul>
+    </section>
+
+    <section class="content-card" id="sec-future">
+      <h2>▶ 未来信号 · 我想做什么</h2>
+      <h3>短期目标（3-6 个月）</h3>
+      <ol>
+        <li>【待填】</li>
+        <li>【待填】</li>
+        <li>【待填】</li>
+      </ol>
+      <h3>中期方向（1-2 年）</h3>
+      <ol>
+        <li>【待填】</li>
+        <li>【待填】</li>
+      </ol>
+      <h3>长期想成为什么样的人</h3>
+      <p>【可以模糊，可以真诚。比如：我想成为一个能把护理、科技和创作连接起来的人。】</p>
+      <h3>想继续提升的能力</h3>
+      <ul>
+        <li>【项目管理】</li>
+        <li>【数据分析】</li>
+        <li>【待填】</li>
+      </ul>
+    </section>
+
+    <section class="content-card" id="sec-contact">
+      <h2>▶ 联络信号 · 怎么样和我链接</h2>
+      <h3>联系方式</h3>
+      <ul>
+        <li>邮箱（主）：【待填】</li>
+        <li>X / Twitter：【@GoSailGlobal】</li>
+        <li>小红书：【待填】</li>
+        <li>公众号：【待填】</li>
+      </ul>
+      <h3>怎么找我最合适</h3>
+      <ul>
+        <li>商务合作：【走邮件，标题写清楚合作意向】</li>
+        <li>内容交流：【小红书/公众号评论或私信】</li>
+        <li>闲聊/交朋友：【待填】</li>
+      </ul>
+      <h3>欢迎来聊的话题</h3>
+      <p>
+        <span class="tag">#护理 + AI</span>
+        <span class="tag">#KOL 运营</span>
+        <span class="tag">#一人食</span>
+        <span class="tag">#待填</span>
+      </p>
+      <h3>给我派活请说清</h3>
+      <ul>
+        <li>任务目标、截止时间、交付形式</li>
+        <li>哪些能自由发挥，哪些不能偏离</li>
+        <li>优先级</li>
+      </ul>
+    </section>
+
+    <section class="content-card" id="sec-works">
+      <h2>▶ 成果信号 · 我的成果</h2>
+      <h3>专业成果（护理方向）</h3>
+      <ol>
+        <li>【ICU 轮转实习完成（2026.08）】</li>
+        <li>【护理学习作品/笔记：标题 + 链接】</li>
+        <li>【考核/证书：待填】</li>
+      </ol>
+      <h3>商务成果（GoSail，可脱敏）</h3>
+      <ol>
+        <li>【操盘 X 个 campaign，合作创作者 X 人】</li>
+        <li>【数据亮点：单条 quote tweet 最高 X 浏览】</li>
+        <li>【代表案例：脱敏描述】</li>
+      </ol>
+      <h3>内容成果</h3>
+      <ol>
+        <li>【代表文章/笔记标题 + 链接】</li>
+        <li>【数据：阅读量/点赞/收藏】</li>
+      </ol>
+      <h3>我能为团队/合作方提供</h3>
+      <ul>
+        <li>【内容策划与文案写作】</li>
+        <li>【KOL 建联与 campaign 运营】</li>
+        <li>【临床/护理领域的专业视角】</li>
+      </ul>
+    </section>
+
+    <footer class="page-footer">
+      <p>© 2026 · 个人说明书</p>
+    </footer>
+
   </main>
 
-  <!-- 电台控制台 -->
-  <footer class="radio-console">
-    <div class="console-inner">
-
-      <!-- 左侧：磁带 VU 表 -->
-      <div class="vu-panel">
-        <div class="vu-title">VU METER</div>
-        <div class="vu-bars" id="vu-bars">
-          <div class="vu-bar"></div><div class="vu-bar"></div><div class="vu-bar"></div>
-          <div class="vu-bar"></div><div class="vu-bar"></div><div class="vu-bar"></div>
-          <div class="vu-bar"></div><div class="vu-bar"></div><div class="vu-bar"></div>
-          <div class="vu-bar"></div><div class="vu-bar"></div><div class="vu-bar"></div>
-        </div>
-        <div class="vu-deck">
-          <div class="cassette">
-            <div class="cassette-reel left"></div>
-            <div class="cassette-reel right"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 中间：频率刻度 + 调频 -->
-      <div class="tuner-panel">
-        <div class="freq-scale" id="freq-scale">
-          <div class="freq-ticks" id="freq-ticks"></div>
-          <div class="freq-stations" id="freq-stations"></div>
-          <div class="freq-indicator" id="freq-indicator">
-            <div class="indicator-line"></div>
-            <div class="indicator-handle"></div>
-          </div>
-        </div>
-
-        <div class="tuner-controls">
-          <button class="neon-btn" id="btn-prev">◀ PREV</button>
-          <div class="power-switch" id="power-switch">
-            <div class="power-track">
-              <div class="power-knob"></div>
-            </div>
-            <span class="power-label">POWER</span>
-          </div>
-          <button class="neon-btn" id="btn-next">NEXT ▶</button>
-        </div>
-
-        <div class="now-playing" id="now-playing">
-          <span class="np-label">NOW TUNING:</span>
-          <span class="np-text" id="np-text">等待信号接入…</span>
-        </div>
-      </div>
-
-      <!-- 右侧：数字显示 + 信号 -->
-      <div class="digital-panel">
-        <div class="digital-display">
-          <div class="digital-freq" id="digital-freq">--.-</div>
-          <div class="digital-unit">MHz</div>
-        </div>
-        <div class="signal-meters" id="signal-meters">
-          <span class="sig-bar"></span><span class="sig-bar"></span><span class="sig-bar"></span>
-          <span class="sig-bar"></span><span class="sig-bar"></span>
-        </div>
-        <div class="station-call" id="station-call">SIGNAL: OFF</div>
-        <div class="station-name" id="station-name">——</div>
-      </div>
-
-    </div>
-  </footer>
-
-  <!-- 开机遮罩：全黑，一台电台，点击启动 -->
-  <div class="boot-overlay" id="boot-overlay">
-    <div class="boot-radio" id="boot-radio">
-      <svg class="boot-radio-icon" viewBox="0 0 120 80" fill="none">
-        <rect x="8" y="18" width="104" height="54" stroke="#00f0ff" stroke-width="2"/>
-        <rect x="16" y="26" width="40" height="20" stroke="#ff2d95" stroke-width="1.5"/>
-        <line x1="20" y1="32" x2="50" y2="32" stroke="#ff2d95" stroke-width="1"/>
-        <line x1="20" y1="37" x2="45" y2="37" stroke="#ff2d95" stroke-width="1"/>
-        <circle cx="82" cy="36" r="10" stroke="#00f0ff" stroke-width="1.5"/>
-        <circle cx="82" cy="36" r="2" fill="#00f0ff"/>
-        <line x1="82" y1="36" x2="82" y2="29" stroke="#00f0ff" stroke-width="1.5"/>
-        <circle cx="100" cy="36" r="4" stroke="#ff2d95" stroke-width="1.5"/>
-        <rect x="16" y="52" width="88" height="12" stroke="#b026ff" stroke-width="1"/>
-        <line x1="22" y1="58" x2="98" y2="58" stroke="#b026ff" stroke-width="1" stroke-dasharray="3 2"/>
-      </svg>
-      <div class="boot-radio-label">点击电台启动</div>
-      <div class="boot-radio-hint">NEON FM</div>
-    </div>
-  </div>
-
-  <script src="js/data.js?v=3"></script>
-  <script src="js/audio.js?v=3"></script>
-  <script src="js/radio.js?v=3"></script>
 </body>
 </html>
